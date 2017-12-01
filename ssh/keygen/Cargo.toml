@@ -1,0 +1,11 @@
+[package]
+name = "keygen"
+version = "0.1.0"
+authors = ["Eli Ma <eli@patch.sh>"]
+
+[dependencies]
+openssl = "*"
+pem = "*"
+base64 = "*"
+openssh-keys ="*"
+rust-crypto = "*"
