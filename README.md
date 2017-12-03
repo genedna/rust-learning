@@ -4,5 +4,5 @@ I am learning [Rust](https://www.rust-lang.org) which **_is a systems programmin
 
 ### Contents
 
-1. [SSH With Rust](https://github.com/genedna/rust-learning/tree/master/ssh)
+- [SSH With Rust](https://github.com/genedna/rust-learning/tree/master/ssh)
   - [Generate SSH2 Format Public & Private Keypair](https://github.com/genedna/rust-learning/tree/master/ssh/keygen) 
