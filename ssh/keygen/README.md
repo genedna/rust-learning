@@ -8,12 +8,12 @@
 
 ### Support Key Types
 
-[X] ssh-rsa 1024/2048/4096
-[ ] ssh-dss
-[ ] ssh-ed25519
-[ ] ecdsa-ssh2-nistp256
-[ ] ecdsa-ssh2-nistp384
-[ ] ecdsa-ssh2-nistp521
+- [X] ssh-rsa 1024/2048/4096
+- [ ] ssh-dss
+- [ ] ssh-ed25519
+- [ ] ecdsa-ssh2-nistp256
+- [ ] ecdsa-ssh2-nistp384
+- [ ] ecdsa-ssh2-nistp521
 
 ### Contribute
 
