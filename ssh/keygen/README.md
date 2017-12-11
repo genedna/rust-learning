@@ -8,14 +8,13 @@
 
 ### Support Key Types
 
-[X] ssh-rsa 1024/2048/4096
-[ ] ssh-dss
-[ ] ssh-ed25519
-[ ] ecdsa-ssh2-nistp256
-[ ] ecdsa-ssh2-nistp384
-[ ] ecdsa-ssh2-nistp521
+- [x] ssh-rsa 1024/2048/4096
+- [ ] ssh-dss
+- [ ] ssh-ed25519
+- [ ] ecdsa-ssh2-nistp256
+- [ ] ecdsa-ssh2-nistp384
+- [ ] ecdsa-ssh2-nistp521
 
-### Contributions
+### Contribute
 
-* [openssh-keys](https://github.com/sdemos/openssh-keys)
-  * [#9](https://github.com/sdemos/openssh-keys/pull/9)
+* [rust-openssh]
