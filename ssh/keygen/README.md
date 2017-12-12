@@ -15,6 +15,19 @@
 - [ ] ecdsa-ssh2-nistp384
 - [ ] ecdsa-ssh2-nistp521
 
+### Linux Dependency
+
+In Linux, the build need `openssl-devel` or `libssl-dev`.
+
+```
+# On Debian and Ubuntu
+sudo apt-get install pkg-config libssl-dev
+# On Arch Linux
+sudo pacman -S openssl
+# On Fedora
+sudo dnf install openssl-devel
+```
+
 ### Contribute
 
 * [openssh-keys](https://github.com/sdemos/openssh-keys)
