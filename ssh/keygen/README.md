@@ -28,6 +28,27 @@ sudo pacman -S openssl
 sudo dnf install openssl-devel
 ```
 
+### Windows Dependency
+
+In Windows, the build need install _**OpenSSL**_ with `vcpkg install openssl` command, then set environment variables `OPENSSL_DIR` and `OPENSSL_LIB_DIR`. 
+
+```
+OPENSSL_DIR = C:\Users\path\vcpkg\packages\openssl_x64-windows
+OPENSSL_LIB_DIR = C:\Users\path\vcpkg\packages\openssl_x64-windows\lib
+```
+
+#### How to install vcpkg 
+
+Intall [vcpkg](https://github.com/Microsoft/vcpkg) like this,
+
+```
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+```
+
+Then set environment variable `VCPKG_ROOT` to _vcpkg_ path.
+
 ### Contribute
 
 * [openssh-keys](https://github.com/sdemos/openssh-keys)
