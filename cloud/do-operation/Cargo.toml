@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Eli Ma <eli@patch.sh>"]
 
 [dependencies]
+clap = "*"
+digitalocean = "*"
