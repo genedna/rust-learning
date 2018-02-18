@@ -1,8 +1,12 @@
 #[macro_use]
 
 extern crate clap;
+extern crate digitalocean;
 
 use clap::{App, Arg, SubCommand};
+use digitalocean::DigitalOcean;
+use digitalocean::api::Droplet;
+use digitalocean::request::Executable;
 
 fn main() {
   let matches = App::new(crate_name!())
@@ -86,26 +90,31 @@ fn main() {
   }
 }
 
-fn list_droplet(key: &str) -> () {
-  println!("{}", key);
+fn list_droplet(api_key: &str) -> () {
+  let client = DigitalOcean::new(api_key).unwrap();
+  let droplets = Droplet::list().execute(&client);
+
+  for droplet in droplets.iter(){
+    println!("{:#?}", droplet);
+  }
 }
 
-fn crete_droplet(key: &str) -> () {
-  println!("{}", key);
+fn crete_droplet(api_key: &str) -> () {
+  println!("{}", api_key);
 }
 
-fn delete_droplet(key: &str) -> () {
-  println!("{}", key);
+fn delete_droplet(api_key: &str) -> () {
+  println!("{}", api_key);
 }
 
-fn list_lb(key: &str) -> () {
-  println!("{}", key);
+fn list_lb(api_key: &str) -> () {
+  println!("{}", api_key);
 }
 
-fn create_lb(key: &str) -> () {
-  println!("{}", key);
+fn create_lb(api_key: &str) -> () {
+  println!("{}", api_key);
 }
 
-fn delete_lb(key: &str) -> () {
-  println!("{}", key);
+fn delete_lb(api_key: &str) -> () {
+  println!("{}", api_key);
 }
