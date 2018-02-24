@@ -3,6 +3,9 @@
 extern crate clap;
 extern crate digitalocean;
 
+use std::str::FromStr;
+use std::usize;
+
 use clap::{App, Arg, SubCommand};
 use digitalocean::DigitalOcean;
 use digitalocean::api::Droplet;
@@ -33,16 +36,16 @@ fn main() {
         .subcommand(
           SubCommand::with_name("create")
             .about("Create a droplet in Digitalocean")
-            .arg(Arg::with_name("cpu")
-              .help("Droplet CPU size")
-              .short("c")
-              .long("cpu")
-              .takes_value(true)
-              .required(true))
         )
         .subcommand(
           SubCommand::with_name("delete")
-            .about("Delete a droplet in Digitalocean")  
+            .arg(Arg::with_name("id")
+              .help("Droplet ID")
+              .short("i")
+              .long("id")
+              .takes_value(true)
+              .required(true))
+              .about("Delete a droplet in Digitalocean")  
         ))
     .subcommand(
       SubCommand::with_name("loadbalancer")
@@ -61,12 +64,11 @@ fn main() {
         ("list", Some(_list_droplet_matches)) =>{
           list_droplet(&api_key);
         },
-        ("create", Some(create_droplet_matches)) =>{
+        ("create", Some(_create_droplet_matches)) =>{
           crete_droplet(&api_key);
-          println!("Pushing to {}", create_droplet_matches.value_of("cpu").unwrap());
         },
-        ("delete", Some(_delete_droplet_matches)) =>{
-          delete_droplet(&api_key);
+        ("delete", Some(delete_droplet_matches)) =>{
+          delete_droplet(&api_key, usize::from_str_radix(delete_droplet_matches.value_of("id").unwrap(), 10).unwrap());
         },
         _ => unreachable!(),
       }
@@ -100,11 +102,31 @@ fn list_droplet(api_key: &str) -> () {
 }
 
 fn crete_droplet(api_key: &str) -> () {
-  println!("{}", api_key);
+  let mut keys : Vec<String> = Vec::new();
+  keys.push(String::from_str("34:ef:6f:da:1f:01:64:13:35:e4:86:b8:4f:97:16:7d").unwrap());
+
+  let mut tags : Vec<String> = Vec::new();
+  tags.push(String::from_str("develop").unwrap());
+
+  let client = DigitalOcean::new(api_key).unwrap();
+  let droplet = Droplet::create("do-operation", "nyc3", "s-1vcpu-1gb", "centos-7-x64")
+                  .ssh_keys(keys)
+                  .backups(true)
+                  .monitoring(true)
+                  .ipv6(true)
+                  .private_networking(true)
+                  .tags(tags)
+                  .execute(&client)
+                  .unwrap();
+
+  println!("Droplet id {:?}", droplet.id());
 }
 
-fn delete_droplet(api_key: &str) -> () {
-  println!("{}", api_key);
+fn delete_droplet(api_key: &str, id: usize) -> () {
+  let client = DigitalOcean::new(api_key).unwrap();
+  let request = Droplet::delete(id).execute(&client);
+
+  println!("{:#?}", request);
 }
 
 fn list_lb(api_key: &str) -> () {
