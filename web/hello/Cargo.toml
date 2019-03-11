@@ -1,0 +1,8 @@
+[package]
+name = "hello"
+version = "0.1.0"
+authors = ["Eli Ma <eli@patch.sh>"]
+edition = "2018"
+
+[dependencies]
+tide = "*"
