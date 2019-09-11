@@ -5,4 +5,4 @@ authors = ["Eli Ma <eli@patch.sh>"]
 edition = "2018"
 
 [dependencies]
-tide = "*"
+tide = { git = "https://github.com/rustasync/tide.git" }
