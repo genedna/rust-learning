@@ -30,11 +30,11 @@ sudo dnf install openssl-devel
 
 ### Windows Dependency
 
-In Windows, the build need install _**OpenSSL**_ with `vcpkg install openssl` command, then set environment variables `OPENSSL_DIR` and `OPENSSL_LIB_DIR`. 
+In Windows, the build need install _**OpenSSL**_ with `vcpkg install openssl:x64-windows` command, then set environment variables `OPENSSL_DIR` and `OPENSSL_LIB_DIR`. 
 
 ```
-OPENSSL_DIR = C:\Users\path\vcpkg\packages\openssl_x64-windows
-OPENSSL_LIB_DIR = C:\Users\path\vcpkg\packages\openssl_x64-windows\lib
+OPENSSL_DIR = C:\Users\path\vcpkg\packages\openssl-windows_x64-windows
+OPENSSL_LIB_DIR = C:\Users\path\vcpkg\packages\openssl-windows_x64-windows\lib
 ```
 
 #### How to install vcpkg 
